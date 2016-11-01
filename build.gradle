@@ -1,0 +1,22 @@
+apply plugin:'application'
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+
+mainClassName = "Driver"
+
+repositories {
+    mavenCentral()
+}
+
+run {
+    standardInput = System.in
+    args = [
+        (project.hasProperty('input') ? input : ''),
+        (project.hasProperty('output') ? output : '')
+    ]
+}
+
+checkstyle {
+    toolVersion = "6.7"
+}
